@@ -1,0 +1,11 @@
+<%# coding: UTF-8 -%>
+
+{% assign filename = page.title | downcase | append:'.html' %}
+
+## State Diagram
+
+![erd]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'state' }}<%= pathname.basename(".*").to_s.singularize.capitalize + "_state.png" %>)
+
+## Entity-Relationship Diagram
+
+![erd]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'erd' }}<%= pathname.basename(".*").to_s.singularize + ".png" %>)

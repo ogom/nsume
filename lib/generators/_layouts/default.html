@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/assets/ico/favicon.ico">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/themes/github/github.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/themes/flatly/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/bootswatch/css/bootswatch.min.css">
+  </head>
+  <body>
+
+    {% include navbar.liquid %}
+
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <h2>{{ page.title }}</h2>
+      </div>
+
+      {{ content }}
+
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <hr>
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+            </ul>
+            <p class="text-muted">© Copyright {{ site.copyright }}.</p>
+            <p class="text-muted">Created using <a href="https://github.com/ogom/natsume" rel="nofollow">Natsume</a>.</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="{{ site.baseurl }}/assets/jquery/jquery-1.10.2.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/bootswatch/js/bootswatch.js"></script>
+  </body>
+</html>

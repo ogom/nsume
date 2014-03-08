@@ -1,0 +1,9 @@
+- lavel: API
+  path: /docs/api/v1
+  dropdown: true
+
+- lavel: Changelog
+  path: /changelog
+
+- lavel: Documentation
+  path: /docs

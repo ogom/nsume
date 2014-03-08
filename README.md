@@ -1,4 +1,4 @@
-# Nsume
+# nSume
 
 TODO: Write a gem description
 

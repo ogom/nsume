@@ -1,0 +1,12 @@
+markdown: redcarpet
+redcarpet:
+  extensions: ['tables', 'with_toc_data']
+pygments: true
+
+baseurl: ''
+encoding: UTF-8
+
+exclude: ['README.md', 'vendor', 'tmp']
+
+name: <%= Nsume.root.basename.to_s %>
+copyright: <%= Time.now.year %>, <%= Nsume.root.basename.to_s %>
