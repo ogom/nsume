@@ -8,7 +8,7 @@ encoding: UTF-8
 
 exclude: ['README.md', 'vendor', 'tmp']
 
-name: <%= Nsume.root.basename.to_s %>
-copyright: <%= Time.now.year %>, <%= Nsume.root.basename.to_s %>
+name: <%= options['site'] %>
+copyright: <%= Time.now.year %>, <%= options['site'] %>
 
-theme: flatly
+theme: <%= options['theme'] %>

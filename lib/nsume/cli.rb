@@ -9,16 +9,19 @@ module Nsume
     map '-v' => :version
     map '-sw' => :switch
 
+    method_option :site, type: :string, aliases: '-s', default: 'site', desc: 'Site name'
+    method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
+    method_option :navbar, type: :string, aliases: '-n', default: 'blog', desc: 'Site navbar [blog] or [api]'
     desc 'init [PATH]', 'initializes a new nSume.'
     def init(path=Dir.pwd)
       Nsume::DevHelper.mlog __method__
 
-      Nsume::Prepare.generator
+      Nsume::Prepare.generator options
       Nsume::Prepare.jquery
       Nsume::Prepare.bootstrap
       Nsume::Prepare.bootswatch_css
       Nsume::Prepare.bootswatch_js
-      Nsume::Prepare.bootswatch_theme
+      Nsume::Prepare.bootswatch_theme options['theme']
 
       Nsume::DevHelper.log "Finished setting."
     end
@@ -50,8 +53,6 @@ module Nsume
 
     desc 'theme', 'Show the current theme'
     def theme
-      Nsume::DevHelper.mlog __method__
-
       path = File.join(Nsume.source_path, '_config.yml')
       raw = YAML.load_file(path)
       puts raw['theme']
@@ -59,9 +60,22 @@ module Nsume
 
     desc 'themes', 'List all themes'
     def themes
-      Nsume::DevHelper.mlog __method__
-
-      puts ['flatly', 'amelia']
+      puts [
+        'amelia',
+        'cerulean',
+        'cosmo',
+        'cyborg',
+        'flatly',
+        'journal',
+        'lumen',
+        'readable',
+        'simplex',
+        'slate',
+        'spacelab',
+        'superhero',
+        'united',
+        'yeti'
+      ]
     end
 
     desc 'up', 'Start jekyll server.'

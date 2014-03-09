@@ -2,7 +2,7 @@ module Nsume
   module Prepare
     # Todo: default configure
     class << self
-      def generator
+      def generator(options)
         Nsume::DevHelper.mlog __method__
 
         name = '_config.yml'
@@ -10,6 +10,25 @@ module Nsume
         unless File.exists?(path)
           FileUtils.cp_r Nsume.generators_path + '/.', Nsume.source_path
           file = ERB.new(Nsume.config_template).result(binding)
+          File.write(path, file)
+
+          raw = []
+          path = File.join(Nsume.source_path, '_data', 'navbar.yml')
+          YAML.load_file(path).each do |navbar|
+            case options['navbar']
+            when 'blog'
+              case navbar['lavel'].downcase
+              when 'blog', 'documentation'
+                raw << navbar
+              end
+            when 'api'
+              case navbar['lavel'].downcase
+              when 'api', 'changelog', 'documentation'
+                raw << navbar
+              end
+            end
+          end
+          file = YAML.dump(raw)
           File.write(path, file)
         end
 

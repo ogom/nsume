@@ -22,6 +22,12 @@ nsume init
 nsume up
 ```
 
+### Creates content
+
+```bash
+nsume post foo bar
+```
+
 ### View browser
 
 ```bash

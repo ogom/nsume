@@ -5,5 +5,8 @@
 - lavel: Changelog
   path: /changelog
 
+- lavel: Blog
+  path: /blog
+
 - lavel: Documentation
   path: /docs
