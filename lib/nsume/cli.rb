@@ -20,6 +20,11 @@ module Nsume
       Nsume::DevHelper.log "Finished setting."
     end
 
+    desc 'up', 'Start jekyll server.'
+    def up
+      system "cd #{Nsume.source_path} && jekyll server --watch"
+    end
+
     desc 'post [title] [content]', 'Creates a posts.'
     def post(title='title', content='')
       Nsume::DevHelper.mlog __method__

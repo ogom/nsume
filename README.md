@@ -1,29 +1,45 @@
-# nSume
+nSume
+=====
 
-TODO: Write a gem description
+nSume is Bootswatch Theme for Jekyll.
+
+Convert static site from markdown. naturally consume Blog and API documents.
+
+![octonsume](https://raw.github.com/ogom/nsume/master/lib/generators/assets/img/octonsume.png)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'nsume'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nsume
+```
+gem install nsume
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Initializes and Startup
 
-## Contributing
+```bash
+nsume init
+nsume up
+```
 
-1. Fork it ( http://github.com/<my-github-username>/nsume/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+### View browser
+
+```bash
+open http://0.0.0.0:4000
+```
+
+## Examples
+
+[GitHub Pages](http://ogom.github.io/natsume-rails-example/)
+
+## Uses
+
+* [Jekyll](http://jekyllrb.com/)
+* [Bootstrap](http://getbootstrap.com/)
+* [Bootswatch](http://bootswatch.com/)
+* [Liquid](http://liquidmarkup.org/)
+* [Autodoc](https://github.com/r7kamura/autodoc)
+
+## License
+
+* MIT
