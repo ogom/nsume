@@ -15,7 +15,7 @@ module Nsume
     # TODO: move config
     def source_path
       path = Dir.pwd
-      path = File.join(path, 'tmp') unless File.exists?(File.join(path, '_config.yml'))
+      path = File.join(path, 'tmp') if File.exists?(File.join(path, 'nsume.gemspec'))
       path
     end
 
