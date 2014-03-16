@@ -1,6 +1,5 @@
 require 'date'
 require 'erb'
-require 'faraday'
 require 'yaml'
 
 module Nsume
@@ -18,7 +17,7 @@ module Nsume
 
       Nsume::Prepare.generator options
       Nsume::Prepare.jquery
-      Nsume::Prepare.bootstrap
+      Nsume::Prepare.bootstrap_js
       Nsume::Prepare.bootswatch_css
       Nsume::Prepare.bootswatch_js
       Nsume::Prepare.bootswatch_theme options['theme']
@@ -31,8 +30,8 @@ module Nsume
       Nsume::DevHelper.mlog __method__
 
       name = "#{Date.today.strftime("%Y-%m-%d")}-#{title}.md"
-      path = File.expand_path(name, Nsume.posts_path)
-      file = ERB.new(Nsume.post_template).result(binding)
+      path = File.expand_path(name, Nsume.config.posts_path)
+      file = ERB.new(Nsume.config.post_template).result(binding)
       File.write(path, file)
 
       Nsume::DevHelper.log "Created a posts."
@@ -42,18 +41,18 @@ module Nsume
     def switch(theme)
       Nsume::DevHelper.mlog __method__
 
-      path = File.join(Nsume.source_path, '_config.yml')
+      path = File.join(Nsume.config.dest_path, '_config.yml')
       raw = YAML.load_file(path)
       raw['theme'] = theme
       file = YAML.dump(raw)
       File.write(path, file)
 
-      Nsume::Prepare.bootswatch_theme(theme)
+      Nsume::Prepare.bootswatch_theme theme
     end
 
     desc 'theme', 'Show the current theme'
     def theme
-      path = File.join(Nsume.source_path, '_config.yml')
+      path = File.join(Nsume.config.dest_path, '_config.yml')
       raw = YAML.load_file(path)
       puts raw['theme']
     end
@@ -80,7 +79,7 @@ module Nsume
 
     desc 'up', 'Start jekyll server.'
     def up
-      system "cd #{Nsume.source_path} && jekyll server --watch"
+      system "cd #{Nsume.config.dest_path} && jekyll server --watch"
     end
 
     desc 'version', 'Print the version and exit.'

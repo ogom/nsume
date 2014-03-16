@@ -1,12 +1,12 @@
-- lavel: API
+- label: API
   path: /docs/api/v1
   dropdown: true
 
-- lavel: Changelog
+- label: Changelog
   path: /changelog
 
-- lavel: Blog
+- label: Blog
   path: /blog
 
-- lavel: Documentation
+- label: Documentation
   path: /docs

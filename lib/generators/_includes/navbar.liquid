@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav">
         {% for nav in site.data.navbar %}
           {% if nav.dropdown %}<li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ nav.lavel }}
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ nav.label }}
              <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 {% for page in site.pages %}<li>
@@ -22,7 +22,7 @@
                 {% endfor %}</li>
               </ul>
           {% else %}<li>
-            <a href="{{ site.baseurl }}{{ nav.path }}">{{ nav.lavel }}</a>
+            <a href="{{ site.baseurl }}{{ nav.path }}">{{ nav.label }}</a>
           {% endif %}
         {% endfor %}</li>
       </ul>

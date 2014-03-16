@@ -7,7 +7,7 @@ module Nsume
     @@logger.level = Logger::DEBUG
 
     class << self
-      def log(message )
+      def log(message)
         @@logger.info(message)
       end
 

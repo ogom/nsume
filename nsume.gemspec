@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ogom@hotmail.co.jp"]
   spec.summary       = %q{naturally consume.}
   spec.description   = %q{naturally consume by ruby.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/ogom/nsume"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
