@@ -17,7 +17,7 @@ module Nsume
           file = ERB.new(Nsume.config.config_template).result(binding)
           File.write(path, file)
 
-          navbar options['navbar']
+          self.navbar options['site']
         end
 
         Nsume::DevHelper.elog path
@@ -49,30 +49,34 @@ module Nsume
         asset path, Nsume.config.bootstrap_css_file, endpoint
       end
 
-      private
+      def navbar(site='')
+        yaml = []
 
-      def navbar(theme='')
-        raw = []
-        path = File.join(Nsume.config.dest_path, '_data', 'navbar.yml')
-
-        YAML.load_file(path).each do |nav|
-          case theme
-          when 'blog'
+        YAML.load(Nsume.config.navbar_template).each do |nav|
+          case site
+          when 'user', 'blog'
             case nav['label'].downcase
             when 'blog', 'documentation'
-              raw << nav
+              yaml << nav
+            end
+          when 'project', 'changelog'
+            case nav['label'].downcase
+            when 'changelog', 'documentation'
+              yaml << nav
             end
           when 'api'
             case nav['label'].downcase
             when 'api', 'changelog', 'documentation'
-              raw << nav
+              yaml << nav
             end
           end
         end
 
-        file = YAML.dump(raw)
-        File.write(path, file)
+        path = File.join(Nsume.config.dest_path, '_data', 'navbar.yml')
+        File.write(path, YAML.dump(yaml))
       end
+
+      private
 
       def asset(path, file, endpoint)
         Nsume::DevHelper.mlog __method__

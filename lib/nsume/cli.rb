@@ -9,7 +9,6 @@ module Nsume
     map '-sw' => :switch
 
     method_option :site, type: :string, aliases: '-s', default: 'user', desc: 'Site [user] or [project]'
-    method_option :navbar, type: :string, aliases: '-n', default: 'blog', desc: 'Site navbar [blog] or [api]'
     method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
     desc 'init [PATH]', 'initializes a new nSume.'
     def init(path=Dir.pwd)
@@ -61,22 +60,12 @@ module Nsume
 
     desc 'themes', 'List all themes'
     def themes
-      puts [
-        'amelia',
-        'cerulean',
-        'cosmo',
-        'cyborg',
-        'flatly',
-        'journal',
-        'lumen',
-        'readable',
-        'simplex',
-        'slate',
-        'spacelab',
-        'superhero',
-        'united',
-        'yeti'
-      ]
+      puts Nsume.config.themes
+    end
+
+    desc 'navbar [SITE]', 'Site navbar [blog] or [project] or [api]'
+    def navbar(site='blog')
+      Nsume::Prepare.navbar site
     end
 
     desc 'up', 'Start jekyll server.'

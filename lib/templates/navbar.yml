@@ -1,0 +1,12 @@
+- label: API
+  path: /docs/api/v1
+  dropdown: true
+
+- label: Changelog
+  path: /changelog
+
+- label: Blog
+  path: /blog
+
+- label: Documentation
+  path: /docs

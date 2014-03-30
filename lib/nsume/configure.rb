@@ -45,8 +45,16 @@ module Nsume
         File.read(File.expand_path('_config.yml.erb', self.templates_path))
       end
 
+      def navbar_template
+        File.read(File.expand_path('navbar.yml', self.templates_path))
+      end
+
       def post_template
         File.read(File.expand_path('post.md.erb', self.templates_path))
+      end
+
+      def themes
+        ['amelia','cerulean','cosmo','cyborg','darkly','flatly','journal','lumen','readable','simplex','slate','spacelab','superhero','united','yeti']
       end
 
       #
