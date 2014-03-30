@@ -3,12 +3,12 @@ redcarpet:
   extensions: ['tables', 'with_toc_data']
 pygments: true
 
-baseurl: ''
+baseurl: '<%= baseurl %>'
 encoding: UTF-8
 
 exclude: ['README.md', 'vendor', 'tmp']
 
-name: <%= options['site'] %>
-copyright: <%= Time.now.year %>, <%= options['site'] %>
+name: <%= basename %>
+copyright: <%= year %>, <%= basename %>
 
 theme: <%= options['theme'] %>

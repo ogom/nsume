@@ -5,6 +5,7 @@ module Nsume
       attr_accessor :bootstrap_endpoint, :bootstrap_css_file, :bootstrap_js_file
       attr_accessor :bootswatch_endpoint, :bootswatch_css_file, :bootswatch_js_file
       attr_accessor :bootswatch_theme
+      attr_writer :dest_path
 
       def setup
         keys.each do |key|
@@ -52,7 +53,8 @@ module Nsume
       # custom reader
       #
       def dest_path
-        path = Dir.pwd
+        @dest_path ||= Dir.pwd
+        path = @dest_path
         path = File.join(path, 'tmp') if File.exists?(File.join(path, 'nsume.gemspec'))
         path
       end

@@ -8,12 +8,14 @@ module Nsume
     map '-v' => :version
     map '-sw' => :switch
 
-    method_option :site, type: :string, aliases: '-s', default: 'site', desc: 'Site name'
-    method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
+    method_option :site, type: :string, aliases: '-s', default: 'user', desc: 'Site [user] or [project]'
     method_option :navbar, type: :string, aliases: '-n', default: 'blog', desc: 'Site navbar [blog] or [api]'
+    method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
     desc 'init [PATH]', 'initializes a new nSume.'
     def init(path=Dir.pwd)
       Nsume::DevHelper.mlog __method__
+
+      Nsume.config.dest_path = path
 
       Nsume::Prepare.generator options
       Nsume::Prepare.jquery
@@ -79,7 +81,8 @@ module Nsume
 
     desc 'up', 'Start jekyll server.'
     def up
-      system "cd #{Nsume.config.dest_path} && jekyll server --watch"
+      system "cd #{Nsume.config.dest_path} && jekyll server --watch --baseurl ''"
+    rescue Interrupt
     end
 
     desc 'version', 'Print the version and exit.'

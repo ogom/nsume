@@ -8,7 +8,11 @@ module Nsume
 
         path = File.expand_path('_config.yml', Nsume.config.dest_path)
         unless File.exists?(path)
-          FileUtils.cp_r Nsume.config.generators_path, Nsume.config.dest_path
+          FileUtils.cp_r Nsume.config.generators_path + '/.', Nsume.config.dest_path
+
+          basename = File.basename(Nsume.config.dest_path)
+          baseurl = '/' + basename if options['site'] == 'project'
+          year = Time.now.year
 
           file = ERB.new(Nsume.config.config_template).result(binding)
           File.write(path, file)
