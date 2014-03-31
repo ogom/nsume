@@ -4,7 +4,7 @@ module Nsume
   module Prepare
     class << self
       def generator(options={})
-        Nsume::DevHelper.mlog __method__
+        Nsume::Logger.info 'Generating Jekyll...'
 
         path = File.expand_path('_config.yml', Nsume.config.dest_path)
         unless File.exists?(path)
@@ -19,8 +19,6 @@ module Nsume
 
           self.navbar options['site']
         end
-
-        Nsume::DevHelper.elog path
       end
 
       def jquery
@@ -79,8 +77,7 @@ module Nsume
       private
 
       def asset(path, file, endpoint)
-        Nsume::DevHelper.mlog __method__
-        Nsume::DevHelper.log endpoint
+        Nsume::Logger.info "Get: #{endpoint}"
 
         path = File.expand_path(path, Nsume.config.dest_path)
         FileUtils.mkdir_p(path) unless File.exists?(path)
@@ -90,8 +87,6 @@ module Nsume
           file = Faraday.get(endpoint).body
           File.write(path, file)
         end
-
-        Nsume::DevHelper.elog path
       end
     end
   end

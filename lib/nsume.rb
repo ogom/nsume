@@ -6,7 +6,7 @@ require_relative 'nsume/default'
 require_relative 'nsume/cli'
 require_relative 'nsume/prepare'
 require_relative 'nsume/version'
-require_relative 'nsume/dev_helper'
+require_relative 'nsume/logger'
 
 module Nsume
   class << self

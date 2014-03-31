@@ -12,8 +12,6 @@ module Nsume
     method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
     desc 'init [PATH]', 'initializes a new nSume.'
     def init(path=Dir.pwd)
-      Nsume::DevHelper.mlog __method__
-
       Nsume.config.dest_path = path
 
       Nsume::Prepare.generator options
@@ -23,25 +21,21 @@ module Nsume
       Nsume::Prepare.bootswatch_js
       Nsume::Prepare.bootswatch_theme options['theme']
 
-      Nsume::DevHelper.log "Finished setting."
+      Nsume::Logger.info "Successfully initialized."
     end
 
     desc 'post [TITLE] [CONTENT]', 'Creates a posts.'
     def post(title='title', content='')
-      Nsume::DevHelper.mlog __method__
-
       name = "#{Date.today.strftime("%Y-%m-%d")}-#{title}.md"
       path = File.expand_path(name, Nsume.config.posts_path)
       file = ERB.new(Nsume.config.post_template).result(binding)
       File.write(path, file)
 
-      Nsume::DevHelper.log "Created a posts."
+      Nsume::Logger.info "Created a posts."
     end
 
     desc 'switch [THEME]', 'Switch theme'
     def switch(theme)
-      Nsume::DevHelper.mlog __method__
-
       path = File.join(Nsume.config.dest_path, '_config.yml')
       raw = YAML.load_file(path)
       raw['theme'] = theme
@@ -49,6 +43,7 @@ module Nsume
       File.write(path, file)
 
       Nsume::Prepare.bootswatch_theme theme
+      Nsume::Logger.info "Switched theme."
     end
 
     desc 'theme', 'Show the current theme'
