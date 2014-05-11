@@ -1,11 +1,13 @@
 <%# coding: UTF-8 -%>
 
+# Diagram
+
 {% assign filename = page.title | downcase | append:'.html' %}
 
-## State Diagram
+## State
 
-![erd]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'state' }}<%= pathname.basename(".*").to_s.singularize.capitalize + "_state.png" %>)
+![state]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'diag/state' }}<%= pathname.basename(".*").to_s.singularize + ".png" %>)
 
-## Entity-Relationship Diagram
+## Entity Relationship
 
-![erd]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'erd' }}<%= pathname.basename(".*").to_s.singularize + ".png" %>)
+![erd]({{ site.baseurl }}{{ page.url | remove: filename | replace: 'api', 'diag/erd' }}<%= pathname.basename(".*").to_s.singularize + ".png" %>)

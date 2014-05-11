@@ -28,10 +28,13 @@ module Nsume
     def post(title='title', content='')
       name = "#{Date.today.strftime("%Y-%m-%d")}-#{title}.md"
       path = File.expand_path(name, Nsume.config.posts_path)
-      file = ERB.new(Nsume.config.post_template).result(binding)
-      File.write(path, file)
-
-      Nsume::Logger.info "Created a posts."
+      unless File.exists?(path)
+        file = ERB.new(Nsume.config.post_template).result(binding)
+        File.write(path, file)
+        Nsume::Logger.info "Created a posts."
+      else
+        Nsume::Logger.info "Existed a posts."
+      end
     end
 
     desc 'switch [THEME]', 'Switch theme'
