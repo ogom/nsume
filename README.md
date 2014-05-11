@@ -3,7 +3,8 @@ nSume
 
 nSume is Bootswatch Theme for Jekyll.
 
-Convert static site from markdown. naturally consume Blog and API documents.
+* Convert static site from markdown.
+* naturally consume Blog and API documents.
 
 ![octonsume](https://raw.github.com/ogom/nsume/master/lib/generators/assets/img/octonsume.png)
 
