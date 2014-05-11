@@ -3,7 +3,7 @@ redcarpet:
   extensions: ['tables', 'with_toc_data']
 pygments: true
 
-baseurl: '/nsume'
+baseurl: ''
 encoding: UTF-8
 
 exclude: ['README.md', 'vendor', 'tmp']
