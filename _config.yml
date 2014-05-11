@@ -1,0 +1,14 @@
+markdown: redcarpet
+redcarpet:
+  extensions: ['tables', 'with_toc_data']
+pygments: true
+
+baseurl: '/nsume'
+encoding: UTF-8
+
+exclude: ['README.md', 'vendor', 'tmp']
+
+name: nSume
+copyright: 2014, ogom
+
+theme: flatly
