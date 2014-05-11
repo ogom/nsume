@@ -37,7 +37,7 @@ open http://0.0.0.0:4000
 
 ## Examples
 
-[GitHub Pages](http://ogom.github.io/natsume-rails-example/)
+[GitHub Pages](http://ogom.github.io/nsume-rails-example/)
 
 ## Uses
 
