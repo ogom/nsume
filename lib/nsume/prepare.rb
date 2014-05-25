@@ -4,7 +4,7 @@ module Nsume
   module Prepare
     class << self
       def generator(options={})
-        Nsume::Logger.info 'Generating Jekyll...'
+        Nsume::Logger.info 'Generating nSume...'
 
         path = File.expand_path('_config.yml', Nsume.config.dest_path)
         unless File.exists?(path)

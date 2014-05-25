@@ -10,7 +10,7 @@ module Nsume
     BOOTSWATCH_ENDPOINT = 'https://raw.githubusercontent.com/thomaspark/bootswatch/v3.1.1'.freeze
     BOOTSWATCH_CSS_FILE = 'bootswatch.min.css'.freeze
     BOOTSWATCH_JS_FILE = 'bootswatch.js'.freeze
-    BOOTSWATCH_THEME = 'flatly'.freeze
+    BOOTSWATCH_THEME = 'yeti'.freeze
 
     class << self
       def options

@@ -9,7 +9,7 @@ module Nsume
     map '-sw' => :switch
 
     method_option :site, type: :string, aliases: '-s', default: 'user', desc: 'Site [user] or [project]'
-    method_option :theme, type: :string, aliases: '-t', default: 'flatly', desc: 'Site theme'
+    method_option :theme, type: :string, aliases: '-t', default: 'yeti', desc: 'Site theme'
     desc 'init [PATH]', 'initializes a new nSume.'
     def init(path=Dir.pwd)
       Nsume.config.dest_path = path
