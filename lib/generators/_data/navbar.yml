@@ -1,5 +1,5 @@
 - label: API
-  path: /docs/api/v1
+  path: /docs/api
   dropdown: true
 
 - label: Changelog

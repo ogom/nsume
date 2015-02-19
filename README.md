@@ -45,7 +45,7 @@ open http://0.0.0.0:4000
 * [Bootstrap](http://getbootstrap.com/)
 * [Bootswatch](http://bootswatch.com/)
 * [Liquid](http://liquidmarkup.org/)
-* [Autodoc](https://github.com/r7kamura/autodoc)
+* [CassetteRack](https://github.com/ogom/cassette-rack)
 
 ## License
 
